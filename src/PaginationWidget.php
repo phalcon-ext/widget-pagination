@@ -121,8 +121,10 @@ class PaginationWidget extends WidgetBase
         return $this->getView()->partial('pagination', $params);
     }
 
-
-    public function getDefaultParams()
+    /**
+     * @return array
+     */
+    protected function getDefaultOptions()
     {
         return [
             'paramKey'     => 'page',
@@ -147,7 +149,6 @@ class PaginationWidget extends WidgetBase
         }
 
         $_uri = parse_url($url ?: $_SERVER['HTTP_URI']);
-
 
         if (!empty($_uri['query'])) {
 
