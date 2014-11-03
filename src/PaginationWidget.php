@@ -56,7 +56,7 @@ class PaginationWidget extends WidgetBase
      *
      * @return string
      */
-    public function render(Array $params = [])
+    public function render($params = null)
     {
         if ($this->total_pages < $this->getOptions('numVisible')) {
             return null;
