@@ -90,6 +90,7 @@ class PaginationWidget extends WidgetBase
         $t = $this->total_pages;
         $k = $this->getOptions('numPage');
 
+        $pagination['pages'] = [];
 
         // Generating page list.
         for ($i = 1; $i <= $t; $i++) {
@@ -118,7 +119,7 @@ class PaginationWidget extends WidgetBase
         }
 
         $params['pagination'] = $pagination;
-        return $this->getView()->partial('pagination', $params);
+        return $this->getView()->render('pagination', $params);
     }
 
     /**
