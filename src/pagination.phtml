@@ -1,0 +1,28 @@
+<ul class="pagination">
+	<li <?= ($pagination['isFirst'] ? 'class="disabled"' : '') ?>>
+		<a href="<?= $pagination['prev_url'] ?>" class="btn-page btn-page-next"
+		   data-start="<?= $pagination['prev_num'] ?>">
+			&laquo;
+		</a>
+	</li>
+	<?php foreach($pagination['pages'] as $page): ?>
+		<li class="<?= $page['class'] ?>">
+			<?php if(!$page['isSeparator']): ?>
+				<a href="<?= $page['url'] ?>" class="btn-page page-<?= $page['num'] ?>"
+				   data-start="<?= $page['num'] ?>">
+					<?= $page['num'] ?>
+				</a>
+			<?php else: ?>
+				<a href="#" onclick="return false">
+					<?= $page['num'] ?>
+				</a>
+			<?php endif; ?>
+		</li>
+	<?php endforeach ?>
+	<li <?= ($pagination['isLast'] ? 'class="disabled"' : '') ?>>
+		<a href="<?= $pagination['next_url'] ?>" class="btn-page btn-page-prev"
+		   data-start="<?= $pagination['next_num'] ?>">
+			&raquo;
+		</a>
+	</li>
+</ul>
