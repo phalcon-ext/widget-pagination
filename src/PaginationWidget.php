@@ -119,7 +119,14 @@ class PaginationWidget extends WidgetBase
         }
 
         $params['pagination'] = $pagination;
-        return $this->getView()->render('pagination', $params);
+        try {
+             return $this->getView()->render('pagination', $params);
+            } catch (\Exception $exc) {
+                $tmpView = __DIR__.'/pagination.phtml';
+                echo "Please copy file $tmpView to ". $this->getView()->getViewsDir() . self::VIEW_DIR_NAME .'/pagination.phtml' ;
+                return;
+            }
+        }
     }
 
     /**
