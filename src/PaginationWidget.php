@@ -47,7 +47,7 @@ class PaginationWidget extends WidgetBase
             $this->total_pages  = $paginate->total_pages;
             $this->total_items  = $paginate->total_items;
 
-            $this->limit = ceil($this->total_items / $this->total_pages);
+            $this->limit = $this->total_pages ? ceil($this->total_items / $this->total_pages) : 0;
         }
     }
 
